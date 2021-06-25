@@ -9,3 +9,6 @@ include_directories("/usr/local/include/aruco")
 
 add_executable(main main.cc)
 target_link_libraries(main ${OpenCV_LIBS} aruco)
+
+add_executable(calibration_camera calibration_camera.cc calibration_camera.hh)
+target_link_libraries(calibration_camera ${OpenCV_LIBS})
