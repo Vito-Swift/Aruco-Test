@@ -16,3 +16,6 @@ target_link_libraries(calibration_camera ${OpenCV_LIBS})
 
 add_executable(test_marker_mapper test_marker_mapper.cc)
 target_link_libraries(test_marker_mapper aruco ${OpenCV_LIBS} marker_mapper)
+
+add_executable(test_marker_mapper_loop test_marker_mapper_loop.cc)
+target_link_libraries(test_marker_mapper_loop aruco ${OpenCV_LIBS} marker_mapper)

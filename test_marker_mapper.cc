@@ -8,7 +8,6 @@
 
 // include from opencv lib
 #include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
 
 // include from aruco lib
 #include <aruco/cameraparameters.h>
@@ -17,7 +16,6 @@
 
 // include from marker mapper lib
 #include "marker_mapper/markermapper.h"
-#include "marker_mapper/debug.h"
 #include "sglviewer.h"
 
 char camera_param_file[] = "../out_camera_data.xml";
@@ -29,7 +27,7 @@ std::string out_basename = "markermapper";
 int main(int argc, char **argv) {
     cv::Mat frameimg, frameimg_processed;
     cv::VideoCapture cap;
-    cap.open("rtp://0.0.0.0:8000/");
+    cap.open("udp://0.0.0.0:8000/");
     aruco::CameraParameters camera_params;
     camera_params.readFromXMLFile(camera_param_file);
 
@@ -62,6 +60,7 @@ int main(int argc, char **argv) {
     arucoMarkerMapper->saveToPcd(out_basename + ".pcd", true);
     arucoMarkerMapper->saveFrameSetPosesToFile(out_basename + ".log");
     arucoMarkerMapper->getMarkerMap().saveToFile(out_basename + ".yml");
+    arucoMarkerMapper->getCameraParams().saveToFile(out_basename + "-cam.yml");
 
     // show the result in pcd viewer
     OpenCvMapperViewer Viewer;
