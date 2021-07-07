@@ -21,3 +21,9 @@ add_executable(test_marker_mapper_loop test_marker_mapper_loop.cc)
 target_link_libraries(test_marker_mapper_loop aruco ${OpenCV_LIBS} marker_mapper)
 
 add_executable(test_astar astar.cc)
+add_executable(testmysqlconn testmysqlconn.cc)
+target_include_directories(testmysqlconn PUBLIC "/usr/include/")
+target_link_libraries(testmysqlconn PUBLIC mysqlcppconn)
+
+add_executable(test_fifo_reader test_fifo_reader.cc)
+add_executable(test_fifo_writer test_fifo_writer.cc)
