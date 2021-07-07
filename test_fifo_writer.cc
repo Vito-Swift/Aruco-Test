@@ -9,7 +9,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-// fuck
 int main() {
     int fd;
     char *myfifo = "/tmp/myfifo";
