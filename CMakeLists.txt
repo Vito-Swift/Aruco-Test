@@ -27,3 +27,4 @@ target_link_libraries(testmysqlconn PUBLIC mysqlcppconn)
 
 add_executable(test_fifo_reader test_fifo_reader.cc)
 add_executable(test_fifo_writer test_fifo_writer.cc)
+add_executable(astar astar.cc)
